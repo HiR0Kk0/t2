@@ -1,0 +1,42 @@
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+<!-- задаем заголовок страницы -->
+{% block title %}This is an page{% endblock %}
+<!-- блок body -->
+{% block content %}
+{{ wtf.quick_form(form, method='post',enctype=None, action="net") }}
+<!-- один из стандартных тэгов html - заголовок второго уровня -->
+<h2> Images:</h2>
+<table align="center", border="1">
+<tr width = 300px><td width=300px>
+{% if gr_name2 %}
+<p>Original image: {{gr_name2}}</p>
+<p><img src={{gr_name2}}/>
+{% else %}
+<p> There is no image yet </p>
+{% endif %}
+</td><td width=300px>
+{% if image_name %}
+<p>New image: {{image_name}}
+<p><img src={{image_name}}></p>
+{% else %}
+<p> There is no image yet </p>
+{% endif %}</td></tr></table>
+<h2>Graphs: </h2>
+<!-- проверяем есть ли данные классификации -->
+<table align="center", border="1">
+<tr width = 300px><td width=300px>
+{% if gr_name %}
+<p>Original image: {{gr_name}}</p>
+<p><img src={{gr_name}}/>
+{% else %}
+<p> There is no image yet </p>
+{% endif %}
+</td><td width=700px>
+{% if old_img %}
+<p>New image: {{old_img}}
+<p><img src={{old_img}}></p>
+{% else %}
+<p> There is no image yet </p>
+{% endif %}</td></tr></table>
+{% endblock %}
